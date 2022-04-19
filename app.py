@@ -24,6 +24,17 @@ def add():
   mysql.connection.commit()
 
   return '{"Result":"Success"}'
+
+@app.route("/delete") #Delete Student
+def delete():
+ id = request.args.get('id')
+ cur = mysql.connection.cursor() #create a connection to the SQL instance
+ s='''DELETE FROM students WHERE ID=?;'''
+ cur.execute(s,id)
+ mysql.connection.commit()
+ return '{"Result":"Success"}'
+
+
 @app.route("/") #Default - Show Data
 def hello(): # Name of the method
   cur = mysql.connection.cursor() #create a connection to the SQL instance
@@ -44,4 +55,4 @@ def hello(): # Name of the method
   )
   return ret #Return the data in a string format
 if __name__ == "__main__":
-  app.run(host='0.0.0.0',port='8080', ssl_context=('../cert.pem', '../privkey.pem')) #Run the flask app at port 8080
+  app.run(host='0.0.0.0',port='8080', ssl_context=('cert.pem', 'privkey.pem')) #Run the flask app at port 8080
