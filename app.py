@@ -15,6 +15,7 @@ app.config['MYSQL_HOST'] = 'localhost' #for now
 mysql.init_app(app)
 
 print("Hello. App initialising")
+print("This was written in Notepad++")
 
 @app.route("/add") #Add Student
 def add():
