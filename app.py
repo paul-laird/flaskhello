@@ -38,7 +38,7 @@ def delete():
  return '{"Result":"Success"}'
 
 
-@app.route("/update") #Delete Student
+@app.route("/update") #Update Student
 def update():
  id = request.args.get('id')
  cur = mysql.connection.cursor() #create a connection to the SQL instance
