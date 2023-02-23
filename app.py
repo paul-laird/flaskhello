@@ -38,6 +38,16 @@ def delete():
  return '{"Result":"Success"}'
 
 
+@app.route("/update") #Delete Student
+def update():
+ id = request.args.get('id')
+ cur = mysql.connection.cursor() #create a connection to the SQL instance
+ s='''NOT DONE YET'''
+ #cur.execute(s,id)
+ #mysql.connection.commit()
+ return '{"Result":"Not implemented yet"}'
+
+
 @app.route("/") #Default - Show Data
 def hello(): # Name of the method
   cur = mysql.connection.cursor() #create a connection to the SQL instance
